@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AssetsModule } from './assets/assets.module';
 import { MaintenanceModule } from './maintenance/maintenance.module';
+import { InventoryModule } from './inventory/inventory.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -24,7 +25,7 @@ import { MaintenanceModule } from './maintenance/maintenance.module';
       autoLoadEntities: true,
       synchronize: configService.get<boolean>('DB_SYNCHRONIZE'), // false en producción
     }),
-  }), AuthModule, AssetsModule, MaintenanceModule],
+  }), AuthModule, AssetsModule, MaintenanceModule, InventoryModule],
   controllers: [AppController],
   providers: [AppService],
 })

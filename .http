@@ -16,3 +16,51 @@ Content-Type: application/json
   "email": "juan@example.com",
   "password": "password123"
 }
+
+### Listar todos los activos
+GET http://localhost:3000/assets
+
+### Obtener detalles de un activo
+GET http://localhost:3000/assets/1734554364122
+
+### Crear un nuevo activo
+POST http://localhost:3000/assets
+Content-Type: application/json
+
+{
+  "name": "Laptop Dell XPS 15",
+  "description": "Laptop para desarrollo",
+  "category": "Tecnología",
+  "tags": ["portátil", "desarrollo"]
+}
+
+### Actualizar un activo
+PUT http://localhost:3000/assets/1734554364122
+Content-Type: application/json
+
+{
+  "name": "Laptop Dell XPS 13",
+  "description": "Laptop para diseño gráfico"
+}
+
+### Eliminar un activo
+DELETE http://localhost:3000/assets/1734706645607
+
+### Ver todas las tareas de mantenimiento
+GET http://localhost:3000/maintenance
+
+### Programar mantenimiento para un activo
+POST http://localhost:3000/maintenance/schedule
+Content-Type: application/json
+
+{
+  "assetId": "12346",
+  "description": "Revisión anual del motor.",
+  "scheduledDate": "2024-01-15"
+}
+
+### Registrar mantenimiento completado
+POST http://localhost:3000/maintenance/complete/1734706731080
+
+### Ver activos con mantenimiento pendiente
+GET http://localhost:3000/maintenance/alerts
