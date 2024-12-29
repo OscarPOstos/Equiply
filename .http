@@ -64,3 +64,47 @@ POST http://localhost:3000/maintenance/complete/1734706731080
 
 ### Ver activos con mantenimiento pendiente
 GET http://localhost:3000/maintenance/alerts
+
+### Ver inventario de consumibles
+GET http://localhost:3000/inventory
+
+### Agregar nuevo stock
+POST http://localhost:3000/inventory
+Content-Type: application/json
+
+{
+  "name": "Papel de impresión A4",
+  "quantity": 1,
+  "lowStockThreshold": 1
+}
+
+### Actualizar cantidades de stock
+PUT http://localhost:3000/inventory/1735227175780
+Content-Type: application/json
+
+{
+  "quantity": 150
+}
+
+### Ver productos con inventario bajo
+GET http://localhost:3000/inventory/low-stock
+
+### Asignar un activo
+POST http://localhost:3000/assignments/assign
+Content-Type: application/json
+
+{
+  "assetId": "asset123",
+  "assignedTo": "user456"
+}
+
+### Marcar un activo como devuelto
+POST http://localhost:3000/assignments/return
+Content-Type: application/json
+
+{
+  "assetId": "asset123"
+}
+
+### Ver historial de asignaciones de un activo
+GET http://localhost:3000/assignments/asset123/history
