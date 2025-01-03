@@ -8,6 +8,7 @@ import { AssetsModule } from './assets/assets.module';
 import { MaintenanceModule } from './maintenance/maintenance.module';
 import { InventoryModule } from './inventory/inventory.module';
 import { AssignmentsModule } from './assignments/assignments.module';
+import { ReportsModule } from './reports/reports.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -26,7 +27,7 @@ import { AssignmentsModule } from './assignments/assignments.module';
       autoLoadEntities: true,
       synchronize: configService.get<boolean>('DB_SYNCHRONIZE'), // false en producción
     }),
-  }), AuthModule, AssetsModule, MaintenanceModule, InventoryModule, AssignmentsModule],
+  }), AuthModule, AssetsModule, MaintenanceModule, InventoryModule, AssignmentsModule, ReportsModule],
   controllers: [AppController],
   providers: [AppService],
 })
